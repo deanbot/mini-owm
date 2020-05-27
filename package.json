@@ -24,14 +24,14 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clean": "shx rm -rf lib libm",
-    "prebuild": "npm run clean",
+    "prepare": "npm run clean",
+    "prepublishOnly": "npm run build",
     "build": "npm run build:umd && npm run build:esnext && npm run build:ts-defs",
     "build:umd": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
     "build:esnext": "tsc -p tsconfig.esnext.json",
     "build:ts-defs": "tsc --declaration --emitDeclarationOnly",
     "build:dev": "webpack --config ./webpack.config.js",
     "build:dev-watch": "webpack --config ./webpack.config.js --progress --colors --watch",
-    "prepublish": "npm run build",
     "serve": "http-server ./lib -o",
     "start": "npm run clean && npm run build:dev && npm-run-all --parallel build:dev-watch serve",
     "test": "echo \"Error: no test specified\" && exit 1"
