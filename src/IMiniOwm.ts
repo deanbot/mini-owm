@@ -1,4 +1,4 @@
-import getAtts from "./common/getAtts";
+import getAtts from "./getAtts";
 
 export interface IMiniOwm {
   apiKey: (value: string) => IMiniOwm;

@@ -1,16 +1,12 @@
 {
   "name": "mini-owm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mini ES wrapper for OpenWeatherMap api",
-  "main": "dist/index.js",
-  "scripts": {
-    "clean": "shx rm -rf dist",
-    "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
-    "build:dev": "webpack --config ./webpack.config.js --progress --colors --watch",
-    "serve": "http-server ./dist -o",
-    "start": "npm run clean && npm-run-all --parallel build:dev serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Dean Verleger",
+  "license": "ISC",
+  "homepage": "https://github.com/deanbot/mini-owm#readme",
+  "bugs": {
+    "url": "https://github.com/deanbot/mini-owm/issues"
   },
   "repository": {
     "type": "git",
@@ -23,12 +19,23 @@
     "API",
     "ES"
   ],
-  "author": "Dean Verleger",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/deanbot/mini-owm/issues"
+  "main": "lib/index.js",
+  "module": "libm/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "shx rm -rf lib libm",
+    "prebuild": "npm run clean",
+    "build": "npm run build:umd && npm run build:esnext && npm run build:ts-defs",
+    "build:umd": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
+    "build:esnext": "tsc -p tsconfig.esnext.json",
+    "build:ts-defs": "tsc --declaration --emitDeclarationOnly",
+    "build:dev": "webpack --config ./webpack.config.js",
+    "build:dev-watch": "webpack --config ./webpack.config.js --progress --colors --watch",
+    "prepublish": "npm run build",
+    "serve": "http-server ./lib -o",
+    "start": "npm run clean && npm run build:dev && npm-run-all --parallel build:dev-watch serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/deanbot/mini-owm#readme",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",

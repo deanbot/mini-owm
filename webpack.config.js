@@ -4,22 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const webpack = require('webpack');
 const dev = process.env.NODE_ENV !== 'production';
 
-const libraryName = 'MiniOwm';
+const libraryName = 'miniOwm';
 
-module.exports = {
+const sharedConfig = {
   resolve: {
     extensions: ['*', '.ts', '.tsx', '.js', '.json'],
   },
-  entry: path.join(__dirname, 'src/MiniOwm.ts'),
+  entry: path.join(__dirname, 'src/index.ts'),
   devtool: 'source-map',
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: `${libraryName}.js`,
-    library: libraryName,
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    umdNamedDefine: true
-  },
   mode: dev ? 'development' : 'production',
   module: {
     rules: [
@@ -28,6 +20,18 @@ module.exports = {
         loader: 'babel-loader',
       }
     ]
+  }
+};
+
+module.exports = {
+  ...sharedConfig,
+  output: {
+    path: path.join(__dirname, 'lib'),
+    filename: 'index.js',
+    library: libraryName,
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    umdNamedDefine: true
   },
   plugins: dev
     ? [

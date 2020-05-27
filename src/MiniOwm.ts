@@ -1,4 +1,4 @@
-import getAtts from "./common/getAtts";
+import getAtts from "./getAtts";
 import IMiniOwm from "./IMiniOwm";
 
 export class MiniOwm implements IMiniOwm {
@@ -59,14 +59,12 @@ export class MiniOwm implements IMiniOwm {
       lat = atts.coords ? atts.coords.latitude : _latitude,
       lon = atts.coords ? atts.coords.longitude : _longitude,
       part = atts.exclude || _exclude;
-    if (!key || !lat || -lon) {
+    if (!key || !lat || !lon) {
       throw new Error('Missing required parameters for Open Weather Map api call.');
     }
     const uri = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${key}`;
     return fetch(uri)
-      .then((res) => {
-        return res.json();
-      });
+      .then(res => res.json());
   }
 }
 export default MiniOwm;

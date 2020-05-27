@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "module": "commonjs",
-    "target": "es5",
+    "outDir": "./lib/",
+    "rootDirs": [
+      "src"
+    ],
+    // "baseUrl": "./",
+    "esModuleInterop": true,
     "lib": [
       "es2015",
-      "dom"
+      "DOM"
     ],
-    "outDir": "dist",
+    "module": "commonjs",
+    "newLine": "LF",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
     "sourceMap": true,
-    "declaration": true
+    "strict": true
   },
-  "files": [
-    "./src/index.ts"
-  ]
+  "include": [
+    "src"
+  ],
 }
