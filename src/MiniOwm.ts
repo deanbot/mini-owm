@@ -22,7 +22,7 @@ export class MiniOwm implements IMiniOwm {
     this._latitude = latitude || 0;
     this._longitude = longitude || 0;
     this._exclude = exclude || '';
-    this._units = (units && units.trim()) ? units.trim().toLowerCase() : '';
+    this._units = (units && units.trim()) ? units.trim().toLowerCase() : Units.Metric;
     if (this._units === Units.Standard) {
       this._units = '';
     }

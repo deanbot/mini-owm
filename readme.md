@@ -2,7 +2,7 @@
 
 Mini-OpenWeatherMap is a wrapper around Open Weather Map's [One Call Api](https://openweathermap.org/api/one-call-api).
 
-MiniOwm is simple but versatile. Use it in any of the following ways or mix and match.
+mini-owm is simple but versatile. Use it in any of the following ways or mix and match. mini-owm defaults to metric - who uses kelvin?
 
 ### Install
 
@@ -19,7 +19,7 @@ const api = new MiniOwm(
   33.441792, // latitude
   -94.037689, // longitude
   'hourly,minutely' // exclude
-  Units.Metric // (or 'metric') units
+  Units.Imperial, // units (default is 'metric' for mini-owm)
   'de' // language
 );
 
@@ -38,7 +38,9 @@ api
   .latitude(33.441792)
   .longitude(-94.037689)
   .exclude('hourly,minutely')
-  .metric()
+  .standard() // set units to standard (Kelvin)
+  .imperial() // set units to imperial (Fahrenheit)
+  .metric() // set units to metric (Celcius) - this is default for mini-owm
   .language('de')
   .get()
   .then(res => {
