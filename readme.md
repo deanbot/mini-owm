@@ -6,12 +6,12 @@ MiniOwm is simple but versatile. Use it in any of the following ways or mix and 
 
 ### Install
 
-`npm install -D mini-owm`
+`npm install mini-owm`
 
 ### Constructor parameters
 
 ```js
-import MiniOwm from 'mini-owm';
+import MiniOwm, { Units } from 'mini-owm';
 
 // constructor parameters are all optional
 const api = new MiniOwm(
@@ -19,6 +19,8 @@ const api = new MiniOwm(
   33.441792, // latitude
   -94.037689, // longitude
   'hourly,minutely' // exclude
+  Units.Metric // (or 'metric') units
+  'de' // language
 );
 
 api.get().then(res => {
@@ -36,6 +38,8 @@ api
   .latitude(33.441792)
   .longitude(-94.037689)
   .exclude('hourly,minutely')
+  .metric()
+  .language('de')
   .get()
   .then(res => {
     console.log(res);
@@ -45,7 +49,7 @@ api
 ### Get Parameters
 
 ```js
-import MiniOwm from 'mini-owm';
+import MiniOwm, { Units } from 'mini-owm';
 new MiniOwm()
   .get({
     apiKey: '<your api key here>',
@@ -53,7 +57,9 @@ new MiniOwm()
       latitude: 33.441792,
       longitude: -94.037689,
     },
-    exclude: 'hourly,minutely'
+    exclude: 'hourly,minutely',
+    units: Units.Metric, // or 'metric'
+    language: 'de',
   })
   .then(res => {
     console.log(res);
