@@ -22,6 +22,7 @@
   "main": "lib/index.js",
   "module": "libm/index.js",
   "types": "lib/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "clean": "shx rm -rf lib libm",
     "prepare": "npm run clean",
