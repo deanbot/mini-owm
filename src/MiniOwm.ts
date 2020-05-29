@@ -105,7 +105,37 @@ export class MiniOwm implements IMiniOwm {
     }
 
     return fetch(uri)
-      .then(res => res.json());
+      .then(res => res.json())
+      .then(res => {
+        if (res.current) {
+          res.current.rain = this.getPrecipitation(res.current.rain);
+          res.current.snow = this.getPrecipitation(res.current.snow);
+        }
+        if (res.daily) {
+          res.daily = res.daily.map(item => {
+            item.rain = this.getPrecipitation(item.rain);
+            item.snow = this.getPrecipitation(item.snow);
+            return item;
+          });
+        }
+        if (res.hourly) {
+          res.hourly = res.hourly.map(item => {
+            item.rain = this.getPrecipitation(item.rain);
+            item.snow = this.getPrecipitation(item.snow);
+            return item;
+          });
+        }
+        return res;
+      });
+  }
+
+  // owm puts precip amount on a nested property
+  private getPrecipitation(value:any): number {
+    return !value
+      ? 0
+      : (value['1h']
+        ? value['1h']
+        : 0);
   }
 }
 export default MiniOwm;

@@ -2,7 +2,13 @@
 
 Mini-OpenWeatherMap is a wrapper around Open Weather Map's [One Call Api](https://openweathermap.org/api/one-call-api).
 
-mini-owm is simple but versatile. Use it in any of the following ways or mix and match. mini-owm defaults to metric - who uses kelvin?
+Configure it via [initialization](#Constructor-parameters), [chainging](#Chaining), [individual calls](#Get-Parameters), or mix and match.
+
+mini-owm also simplifies the Open Weather Api by:
+
+- defaulting to metric - _who uses kelvin?_
+- applying the nested `1h` property from `rain` and `snow` directly to those properties - _who starts a json property with a number?_
+- defaulting empty` rain` or `snow` to `0` instead of omitting
 
 ### Install
 
