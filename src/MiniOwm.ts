@@ -111,13 +111,6 @@ export class MiniOwm implements IMiniOwm {
           res.current.rain = this.getPrecipitation(res.current.rain);
           res.current.snow = this.getPrecipitation(res.current.snow);
         }
-        if (res.daily) {
-          res.daily = res.daily.map(item => {
-            item.rain = this.getPrecipitation(item.rain);
-            item.snow = this.getPrecipitation(item.snow);
-            return item;
-          });
-        }
         if (res.hourly) {
           res.hourly = res.hourly.map(item => {
             item.rain = this.getPrecipitation(item.rain);
