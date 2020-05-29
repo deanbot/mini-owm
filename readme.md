@@ -1,18 +1,23 @@
 # mini-owm
 
-Mini-OpenWeatherMap is a wrapper around Open Weather Map's [One Call Api](https://openweathermap.org/api/one-call-api).
+A wrapper around Open Weather Map's [One Call Api](https://openweathermap.org/api/one-call-api).
 
-Configure it via [initialization](#Constructor-parameters), [chainging](#Chaining), [individual calls](#Get-Parameters), or mix and match.
+Configure it via [initialization](#Constructor-parameters), [chaining](#Chaining), [individual calls](#Get-Parameters), or mix and match.
 
 mini-owm also simplifies the Open Weather Api by:
 
-- defaulting to metric - _who uses kelvin?_
-- applying the nested `1h` property from `rain` and `snow` directly to those properties - _who starts a json property with a number?_
-- defaulting empty` rain` or `snow` to `0` instead of omitting
+- defaulting to metric (_who uses kelvin?_)
+- applying the nested `1h` property from `rain` and `snow` directly to those properties (_who starts a json property with a number?_)
+    - i.e. instead of `current.rain['1h']` the rain value is at `current.rain`
+- defaulting empty` rain` or `snow` to `0` instead of omitting (_0 is better than undefined_)
 
 ### Install
 
 `npm install mini-owm`
+
+### Required Params
+
+To make a call to OpenWeatherMap you must provide an api key, latitude, and longitude. All other configuration is optional.
 
 ### Constructor parameters
 
@@ -58,6 +63,8 @@ api
 
 ```js
 import MiniOwm, { Units } from 'mini-owm';
+
+// get attributes properties are all optional
 new MiniOwm()
   .get({
     apiKey: '<your api key here>',
@@ -67,7 +74,7 @@ new MiniOwm()
     },
     exclude: 'hourly,minutely',
     units: Units.Metric, // or 'metric'
-    language: 'de',
+    language: 'de'
   })
   .then(res => {
     console.log(res);
