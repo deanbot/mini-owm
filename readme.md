@@ -9,7 +9,7 @@ mini-owm also simplifies the Open Weather Api by:
 - defaulting to metric (_who uses kelvin?_)
 - applying the nested `1h` property from `rain` and `snow` directly to those properties (_who starts a json property with a number?_)
     - i.e. instead of `current.rain['1h']` the rain value is at `current.rain`
-- defaulting empty` rain` or `snow` to `0` instead of omitting (_0 is better than undefined_)
+- defaulting empty `rain` or `snow` to `0` instead of omitting (_0 is better than undefined_)
 
 ### Install
 
