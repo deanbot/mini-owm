@@ -1,56 +1,56 @@
 {
-  "name": "mini-owm",
-  "version": "1.3.3",
-  "description": "Mini ES wrapper for OpenWeatherMap api",
-  "author": "Dean Verleger",
-  "license": "ISC",
-  "homepage": "https://github.com/deanbot/mini-owm#readme",
-  "bugs": {
-    "url": "https://github.com/deanbot/mini-owm/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/deanbot/mini-owm.git"
-  },
-  "keywords": [
-    "Open Weather Map",
-    "OpenWeather",
-    "OpenWeatherMap",
-    "API",
-    "ES"
-  ],
-  "main": "lib/index.js",
-  "module": "libm/index.js",
-  "types": "lib/index.d.ts",
-  "sideEffects": false,
-  "scripts": {
-    "clean": "shx rm -rf lib libm",
-    "prepare": "npm run clean",
-    "prepublishOnly": "npm run build",
-    "build": "npm run build:umd && npm run build:esnext && npm run build:ts-defs",
-    "build:umd": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
-    "build:esnext": "tsc -p tsconfig.esnext.json",
-    "build:ts-defs": "tsc --declaration --emitDeclarationOnly",
-    "build:dev": "webpack --config ./webpack.config.js",
-    "build:dev-watch": "webpack --config ./webpack.config.js --progress --colors --watch",
-    "serve": "http-server ./lib -o",
-    "start": "npm run clean && npm run build:dev && npm-run-all --parallel build:dev-watch serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-typescript": "^7.9.0",
-    "babel-loader": "^8.1.0",
-    "cross-env": "^7.0.2",
-    "dotenv": "^8.2.0",
-    "fs-extra": "^7.0.1",
-    "html-webpack-plugin": "^4.3.0",
-    "http-server": "^0.12.3",
-    "npm-run-all": "^4.1.5",
-    "shx": "^0.3.2",
-    "typescript": "^3.9.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
-  }
+	"name": "mini-owm",
+	"version": "1.3.3",
+	"description": "Mini ES wrapper for OpenWeatherMap api",
+	"author": "Dean Verleger",
+	"license": "ISC",
+	"homepage": "https://github.com/deanbot/mini-owm#readme",
+	"bugs": {
+		"url": "https://github.com/deanbot/mini-owm/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/deanbot/mini-owm.git"
+	},
+	"keywords": [
+		"Open Weather Map",
+		"OpenWeather",
+		"OpenWeatherMap",
+		"API",
+		"ES"
+	],
+	"main": "lib/index.js",
+	"module": "libm/index.js",
+	"types": "lib/index.d.ts",
+	"sideEffects": false,
+	"scripts": {
+		"clean": "shx rm -rf lib libm",
+		"prepare": "npm run clean",
+		"prepublishOnly": "npm run build",
+		"build": "npm run build:umd && npm run build:esnext && npm run build:ts-defs",
+		"build:umd": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
+		"build:esnext": "tsc -p tsconfig.esnext.json",
+		"build:ts-defs": "tsc --declaration --emitDeclarationOnly",
+		"build:dev": "webpack --config ./webpack.config.js",
+		"build:dev-watch": "webpack --config ./webpack.config.js --progress --colors --watch",
+		"serve": "http-server ./lib -o",
+		"start": "npm run clean && npm run build:dev && npm-run-all --parallel build:dev-watch serve",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.9.6",
+		"@babel/preset-env": "^7.9.6",
+		"@babel/preset-typescript": "^7.9.0",
+		"babel-loader": "^8.1.0",
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
+		"fs-extra": "^7.0.1",
+		"html-webpack-plugin": "^4.3.0",
+		"http-server": "^0.12.3",
+		"npm-run-all": "^4.1.5",
+		"shx": "^0.3.2",
+		"typescript": "^3.9.3",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11"
+	}
 }
