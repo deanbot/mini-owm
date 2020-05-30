@@ -1,6 +1,6 @@
 {
 	"name": "mini-owm",
-	"version": "1.3.3",
+	"version": "1.3.4",
 	"description": "Mini ES wrapper for OpenWeatherMap api",
 	"author": "Dean Verleger",
 	"license": "ISC",
