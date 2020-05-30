@@ -2,7 +2,7 @@
 
 A wrapper around Open Weather Map's [One Call Api](https://openweathermap.org/api/one-call-api).
 
-Configure it via [initialization](#Constructor-parameters), [chaining](#Chaining), [individual calls](#Get-Parameters), or mix and match.
+Configure it via [initialization](#constructor-parameters), [chaining](#chaining), [individual calls](#get-parameters), or mix and match.
 
 mini-owm also simplifies the Open Weather Api by:
 
