@@ -12,6 +12,7 @@
     ],
     "module": "commonjs",
     "newLine": "LF",
+    "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": false,
